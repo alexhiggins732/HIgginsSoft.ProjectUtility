@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "NameUtil": {
+      "commandName": "Project",
+      ///"commandLineArgs": "Rename D:\\Source\\Repos\\IdentityServer8.Admin Skoruba.IdentityServer4 IdentityServer8"
+      //"commandLineArgs": "clean D:\\Source\\Repos\\IdentityServer8\\"
+      "commandLineArgs": "implicitusings D:\\Source\\Repos\\IdentityServer8\\samples\\Clients"
+      //"commandLineArgs": "license D:\\Source\\Repos\\IdentityServer8\\samples\\Clients\\src\\APIs\\ResourceBasedApi D:\\\\Source\\\\Repos\\\\IdentityServer8\\\\LicenseHeader.txt"
+    }
+  }
+}

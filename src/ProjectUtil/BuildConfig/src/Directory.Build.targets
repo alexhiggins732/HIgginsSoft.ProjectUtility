@@ -1,0 +1,15 @@
+<Project>
+	<!-- workaround for deterministic builds; see https://github.com/clairernovotny/DeterministicBuilds -->
+	<PropertyGroup>
+		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+	</ItemGroup>
+	<ItemGroup>
+		<LicenseFilePath include="$(SolutionDir)LICENSE" />
+	</ItemGroup>
+	<Target Name="CopyLicenseFile" BeforeTargets="Build">
+		<Copy SourceFiles="$(LicenseFilePath)" DestinationFolder="$(ProjectDir)" />
+	</Target>
+</Project>

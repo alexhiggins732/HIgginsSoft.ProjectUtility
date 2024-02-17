@@ -1,0 +1,58 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		
+		
+		<RootNamespace>HigginsSoft</RootNamespace>
+		<Authors>Alexander Higgins</Authors>
+		<OutputType>Library</OutputType>
+
+		<NoWarn>NU5105;CS1701;BC42016;MSB3884;NETSDK1057;CS8632;IDE0090;IDE0057;xUnit1004</NoWarn>
+
+		<Copyright>Alexander Higgins, 2010-</Copyright>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/alexhiggins732/HigginsSoft/</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/alexhiggins732/HigginsSoft/</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<Product>protobuf-net.Grpc ($(TargetFramework))</Product>
+		<PackageReleaseNotes>https://github.com/alexhiggins732/HigginsSoft/releasenotes#$(VersionPrefix)</PackageReleaseNotes>
+
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<PackageTags>HigginsSoft</PackageTags>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<DefaultLanguage>en-US</DefaultLanguage>
+		<IncludeSymbols>false</IncludeSymbols>
+		<IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<CodeAnalysisRuleset>$(SolutionDir)Shared.ruleset</CodeAnalysisRuleset>
+
+		<ExampleRefs>local</ExampleRefs>
+		<!-- local or nuget-->
+
+		<ProtoBufNet2Version>2.4.8</ProtoBufNet2Version>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release' or '$(Configuration)'=='VS'">
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<Deterministic>true</Deterministic>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(Configuration)' == 'Release' and '$(SourceRoot)'==''">
+		<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+		<PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="all" />
+	</ItemGroup>
+</Project>
